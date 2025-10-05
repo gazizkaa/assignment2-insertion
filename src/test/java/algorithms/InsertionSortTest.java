@@ -7,56 +7,42 @@ import static org.junit.jupiter.api.Assertions.*;
 public class InsertionSortTest {
 
     @Test
-    void testNormalCase() {
-        int[] arr = {5, 2, 4, 6, 1, 3};
-        int[] expected = {1, 2, 3, 4, 5, 6};
-        PerformanceTracker tracker = new PerformanceTracker();
-        InsertionSort.sort(arr, tracker);
-        assertArrayEquals(expected, arr);
-    }
-
-    @Test
-    void testEmptyArray() {
+    public void testEmptyArray() {
         int[] arr = {};
-        int[] expected = {};
         PerformanceTracker tracker = new PerformanceTracker();
         InsertionSort.sort(arr, tracker);
-        assertArrayEquals(expected, arr);
+        assertArrayEquals(new int[]{}, arr);
     }
 
     @Test
-    void testSingleElement() {
-        int[] arr = {7};
-        int[] expected = {7};
+    public void testSingleElement() {
+        int[] arr = {5};
         PerformanceTracker tracker = new PerformanceTracker();
         InsertionSort.sort(arr, tracker);
-        assertArrayEquals(expected, arr);
+        assertArrayEquals(new int[]{5}, arr);
     }
 
     @Test
-    void testAlreadySorted() {
+    public void testSortedArray() {
         int[] arr = {1, 2, 3, 4, 5};
-        int[] expected = {1, 2, 3, 4, 5};
         PerformanceTracker tracker = new PerformanceTracker();
         InsertionSort.sort(arr, tracker);
-        assertArrayEquals(expected, arr);
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, arr);
     }
 
     @Test
-    void testReverseSorted() {
+    public void testReverseSortedArray() {
         int[] arr = {5, 4, 3, 2, 1};
-        int[] expected = {1, 2, 3, 4, 5};
         PerformanceTracker tracker = new PerformanceTracker();
         InsertionSort.sort(arr, tracker);
-        assertArrayEquals(expected, arr);
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, arr);
     }
 
     @Test
-    void testWithDuplicates() {
-        int[] arr = {3, 1, 2, 3, 1};
-        int[] expected = {1, 1, 2, 3, 3};
+    public void testWithDuplicates() {
+        int[] arr = {4, 2, 4, 3, 2, 1};
         PerformanceTracker tracker = new PerformanceTracker();
         InsertionSort.sort(arr, tracker);
-        assertArrayEquals(expected, arr);
+        assertArrayEquals(new int[]{1, 2, 2, 3, 4, 4}, arr);
     }
 }
